@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 600px;
+            max-height: 90vh; /* Maximum height for container */
+            overflow-y: auto; /* Enable vertical scrolling within container */
+        }
+        h2 {
+            margin-top: 0;
+        }
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="text"], input[type="submit"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #f44336; /* Red color for logout */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions button {
+            background-color: #4CAF50; /* Green color for actions */
+            margin: 0 5px;
+        }
+        .actions button.reject {
+            background-color: #f44336; /* Red color for reject */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+
+        <!-- Check Requests Section -->
+        <form id="check-resources-form" action="webapi/UAM/checkrequests" method="post">
+            <h3>Check Requests</h3>
+            <input type="submit" value="Check Requests">
+        </form>
+
+         <form id="check-resource-details-form" action="webapi/UAM/checkresourcedetails" method="post">
+            <h3>Check Resource Details</h3>
+            <input type="submit" value="Check Resource Details">
+        </form>
+
+        <!-- Add Resource Section -->
+        <form id="add-resource-form" action="webapi/UAM/addresource" method="post">
+            <h3>Add Resource</h3>
+            <label for="resourceName">Resource Name:</label>
+            <input type="text" id="resourceName" name="resourceName" placeholder="Enter resource name" required>
+            <input type="submit" value="Add Resource">
+        </form>
+
+        <!-- Remove Resource from Database Section -->
+        <form id="remove-resource-db-form" action="webapi/UAM/displayresources" method="post">
+             <h3>Remove resource from DB:</h3>
+            
+           
+            <input type="submit" value="Remove Resource">
+        </form>
+
+        <!-- Remove Resource from User Section -->
+        <form id="remove-resource-user-form" action="webapi/UAM/removeresourcefromuser1" method="post">
+            <h3>Remove Resource from User</h3>
+            <!--  <label for="userName">Enter User Name:</label>
+            <input type="text" id="userName" name="userName" required>
+            
+            <label for="removeUserResource">Select Resource to Remove:</label>
+            <select id="removeUserResource" name="resourceToRemove" required>
+                <!-- Options will be populated based on the entered username
+            </select> -->
+            
+            <input type="submit" value="Remove Resource from User">
+        </form>
+        
+        
+        
+		        
+
+		<!-- Add users -->
+		<form id="addusers" action="webapi/UAM/addusersbyadmin" method="post">
+		    <h3>Add User</h3>
+		    <label for="addusersbyadmin"></label>
+            <input type="submit" value="Add User">
+		</form>
+
+        
+        <!-- Remove users -->
+        <form id="check-users-resource-form" action="webapi/UAM/removeuser" method="post">
+            <h3>Remove User</h3>
+            <label for="resourceCheck"></label>
+            <input type="submit" value="Remove User">
+        </form>
+        
+         <!-- Edit user details -->
+        <form id="check-users-resource-form" action="webapi/UAM/edituser" method="post">
+            <h3>Edit user details</h3>
+            <label for="resourceCheck"></label>
+            <input type="submit" value="Edit user deatils">
+        </form>
+        
+        <!-- Check Users for a Resource Section -->
+        <form id="check-users-resource-form" action="webapi/UAM/checkusersforaresource" method="post">
+            <h3>Check Users for a Resource</h3>
+            <label for="resourceCheck"></label>
+            <input type="submit" value="Check Users">
+        </form>
+
+        <!-- Check Resources of a User Section -->
+        <form id="check-resources-user-form" action="webapi/UAM/checkresourcesofauser" method="post">
+            <h3>Check Resources of a User</h3>
+            <label for="checkUserName"></label>
+            <input type="submit" value="Check Resources">
+        </form>
+        
+        <div class="link">
+            <a href="updatepassword.html">Update Password</a>
+        </div>
+        
+
+        <!-- Logout Section -->
+        <button id="logout-button" class="button">Logout</button>
+    </div>
+    <script>
+    document.getElementById('logout-button').addEventListener('click', function() {
+        // Optionally open the login page in a new tab
+        window.close();
+        window.open('login.html', '_blank');
+        
+        // Close the current window/tab
+       
+    });
+</script>
+   
+</body>
+</html>

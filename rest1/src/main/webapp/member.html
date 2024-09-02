@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    overflow: hidden; /* Prevent scrolling on the body */
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 500px; /* Increased width */
+    max-height: 90vh; /* Set maximum height for scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto; /* Enable vertical scrolling within container */
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input[type="text"], input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.button {
+    background-color: #f44336; /* Red color for logout */
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Member Dashboard</h2>
+        
+        <!-- Check Resources Section -->
+        <form id="check-resources-form" action="webapi/UAM/checkmyresources" method="post">
+            <h3>Check Resources</h3>
+            <input type="submit" value="Check My Resources">
+        </form>
+
+        <!-- Request New Resource Section -->
+        <form id="request-resource-form" action="webapi/UAM/checknotavailableresources" method="post">
+            <h3>Request New Resource</h3>
+            <label for="newResource"></label>
+            <!-- <select id="newResource" name="newResource" required>
+                Options will be populated by the backend
+            </select> -->
+            <input type="submit" value="Request Resource">
+        </form>
+
+        <!-- Check Approval Section -->
+        <form id="check-approval-form" action="webapi/UAM/checkapprovals" method="post">
+            <h3>Check Approval</h3>
+            <input type="submit" value="Check My Approvals">
+        </form>
+
+        <!-- Request Approval Section -->
+        <form id="request-approval-form" action="webapi/UAM/requestRole" method="post">
+            <h3>Request for Manager or Admin Role</h3>
+            <label for="approvalRequest">Enter Requested Role</label>
+            <input type="text" id="approvalRequest" name="approvalRequest" placeholder="Enter role name" required>
+            <input type="submit" value="Request Approval">
+        </form>
+
+        <!-- Remove Own Resource Section -->
+        <form id="remove-resource-form" action="webapi/UAM/checkavailableresources" method="post">
+            <h3>Remove Own Resource</h3>
+            <label for="removeResource">Select Resource to Remove:</label>
+            <input type="submit" value="Remove Resource">
+        </form>
+        
+        <!-- Know your manager -->
+        <form id="know-manager-form" action="webapi/UAM/getManager" method="post">
+            <h3>Know Manager</h3>
+            <input type="submit" value="Know Manager">
+        </form>
+        
+        <div class="link">
+            <a href="updatepassword.html">Update Password</a>
+        </div>
+        
+        <!-- Logout Section -->
+        <button id="logout-button" class="button">Logout</button>
+    </div>
+
+    <script>
+    document.getElementById('logout-button').addEventListener('click', function() {
+        // Optionally open the login page in a new tab
+        window.close();
+        window.open('login.html', '_blank');
+        
+        // Close the current window/tab
+    });
+    </script>
+   
+</body>
+</html>

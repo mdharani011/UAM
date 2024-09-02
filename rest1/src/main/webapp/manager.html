@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 600px;
+            max-height: 90vh; /* Maximum height for container */
+            overflow-y: auto; /* Enable vertical scrolling within container */
+        }
+        h2 {
+            margin-top: 0;
+        }
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="text"], input[type="submit"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #f44336; /* Red color for logout */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions button {
+            background-color: #4CAF50; /* Green color for actions */
+            margin: 0 5px;
+        }
+        .actions button.reject {
+            background-color: #f44336; /* Red color for reject */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Manager Dashboard</h2>
+
+        <!-- Show Team Members Section -->
+        <form id="show-team-members-form" action="webapi/UAM/showteammembers" method="post">
+         <h3>Show Team Members:</h3>
+            <input type="submit" value="Show Team Members">
+        </form>
+
+        <!-- Add Member Section -->
+        <form id="add-member-form" action="webapi/UAM/addteammembers" method="post">
+         <h3>Add Team Member:</h3>
+            <input type="submit" value="Add Team Member">
+        </form>
+        <!-- Add Member Section -->
+        <form id="request-admin-form" action="webapi/UAM/requestadmin" method="post">
+         <h3>Request Admin:</h3>
+            <input type="submit" value="Request Admin">
+        </form>
+
+        <!-- Remove Member Section -->
+        <form id="remove-member-form" action="webapi/UAM/removeteammembers" method="post">
+         <h3>Remove Team Member:</h3>
+            <input type="submit" value="Remove Team Member">
+        </form>
+
+        <!-- Show Resources Section -->
+        <form id="show-resources-form" action="webapi/UAM/checkmyresources" method="post">
+         <h3>Show Resources:</h3>
+            <input type="submit" value="Show Resources">
+        </form>
+
+        <!-- Remove Resources Section -->
+        <form id="remove-resources-form" action="webapi/UAM/checkavailableresources" method="post">
+         <h3>Remove Resource:</h3>
+            <input type="submit" value="Remove Resource">
+        </form>
+
+        <!-- Request Resource Section -->
+        <form id="request-resource-form" action="webapi/UAM/checknotavailableresources" method="post">
+         <h3>Request Resource:</h3>
+            <input type="submit" value="Request Resource">
+        </form>
+
+        <!-- Check Approvals Section -->
+        <form id="check-approvals-form" action="webapi/UAM/checkapprovals" method="post">
+         <h3>Check Approvals:</h3>
+            <input type="submit" value="Check Approvals">
+        </form>
+
+        <!-- Edit Team Member Details Section -->
+        <form id="edit-team-member-form" action="webapi/UAM/editteammemberdetails" method="post">
+        <h3>Edit Team Member Details:</h3>
+            <input type="submit" value="Edit Team Member Details">
+        </form>
+
+         <div class="link">
+            <a href="updatepassword.html">Update Password</a>
+        </div>
+        
+        
+       <!-- Logout Section -->
+        <button id="logout-button" class="button">Logout</button>
+    </div>
+    <script>
+    document.getElementById('logout-button').addEventListener('click', function() {
+        // Optionally open the login page in a new tab
+         window.close();
+        window.open('login.html', '_blank');
+        
+        // Close the current window/tab
+       
+    });
+</script>
+    </div>
+</body>
+</html>
